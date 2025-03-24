@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berklee Connect - Light Theme</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Copy your light theme CSS here */
+    :root {
+      --primary: #e31c1c;
+      --secondary: #ff1e1e;
+      --gradient-1: linear-gradient(135deg, #e31c1c, #b30000);
+      --gradient-2: linear-gradient(135deg, #ff1e1e, #ff4444);
+      --dark: #ffffff;
+      --gray: #f5f5f5;
+      --light-gray: #e0e0e0;
+      --text: #333333;
+      --text-secondary: #666666;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo-icon {
+      background: var(--gradient-1);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover, nav a.active {
+      background-color: var(--gray);
+    }
+    
+    .btn {
+      background: var(--gradient-1);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
+    .btn.secondary {
+      background: var(--gradient-2);
+    }
+    
+    .search-bar {
+      display: flex;
+      background-color: var(--gray);
+      border-radius: 30px;
+      padding: 8px 16px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 800px;
+      align-self: center;
+    }
+    
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: var(--text);
+      flex-grow: 1;
+      padding: 8px;
+      outline: none;
+      font-size: 16px;
+    }
+    
+    .search-bar button {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    
+    main {
+      display: flex;
+      flex-grow: 1;
+      padding: 20px 0;
+      gap: 20px;
+    }
+    
+    .feed {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    
+    .music-card {
+      background-color: var(--gray);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .music-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .music-card-content {
+      padding: 16px;
+    }
+    
+    .music-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .music-card-artist {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .sidebar {
+      width: 300px;
+      background-color: var(--gray);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    
+    .sidebar-item:hover {
+      background-color: var(--light-gray);
+    }
+    
+    .sidebar-item-title {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    
+    .sidebar-item-subtitle {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-music"></i>
+        </div>
+        Berklee Connect
+      </div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Discover</a>
+        <a href="#">Challenges</a>
+        <a href="#">Profile</a>
+        <a href="#" class="btn">Upload</a>
+      </nav>
+    </header>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="Search for music, artists, or genres...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+    
+    <main>
+      <div class="feed">
+        <div class="section-title">
+          Latest Uploads
+          <a href="#" class="view-all">View All</a>
+        </div>
+        
+        <div class="music-card">
+          <div class="music-card-content">
+            <div class="music-card-title">
+              Summer Vibes
+            </div>
+            <div class="music-card-artist">
+              by James Rodriguez
+            </div>
+            <div class="tags">
+              <span class="tag">Pop</span>
+              <span class="tag">Electronic</span>
+              <span class="tag">Summer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="music-card">
+          <div class="music-card-content">
+            <div class="music-card-title">
+              Late Night Jazz
+            </div>
+            <div class="music-card-artist">
+              by Sarah Johnson
+            </div>
+            <div class="tags">
+              <span class="tag">Jazz</span>
+              <span class="tag">Piano</span>
+              <span class="tag">Instrumental</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar">
+        <div class="sidebar-title">
+          <i class="fas fa-star"></i> Recommended for You
+        </div>
+        
+        <div class="sidebar-item">
+          <div class="sidebar-item-info">
+            <div class="sidebar-item-title">Guitar Techniques Workshop</div>
+            <div class="sidebar-item-subtitle">Tomorrow at 3 PM</div>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <div class="sidebar-item-info">
+            <div class="sidebar-item-title">Music Production Basics</div>
+            <div class="sidebar-item-subtitle">Friday at 5 PM</div>
+          </div>
+        </div>
+        
+        <div class="sidebar-item">
+          <div class="sidebar-item-info">
+            <div class="sidebar-item-title">Jazz Ensemble Practice</div>
+            <div class="sidebar-item-subtitle">Saturday at 2 PM</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      © 2025 Berklee Connect. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
