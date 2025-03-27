@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berklee Connect</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+<style>
+  /* Core styles */
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  
+  /* Profile overlay - SIMPLE AND DIRECT */
+  #profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 1000;
+    overflow-y: auto;
+    display: none;
+  }
+  
+  #profile-overlay.visible {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<!-- Simple Navigation Bar -->
+<nav class="bg-red-600 text-white p-4">
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Berklee Connect</h1>
+    <div class="flex items-center gap-4">
+      <!-- This is the profile button -->
+      <button id="profile-button" class="relative" onclick="showProfile()">
+        <img src="/api/placeholder/40/40" alt="Profile" class="w-10 h-10 rounded-full border-2 border-white">
+        <span class="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-4">Welcome to Berklee Connect</h2>
+  <p class="mb-6">Click the profile picture in the top right corner to view your profile.</p>
+  
+  <div class="bg-white rounded-lg shadow p-6">
+    <h3 class="font-semibold mb-2">Main Content Area</h3>
+    <p>This is where the app's content would normally appear.</p>
+  </div>
+</main>
+
+<!-- Profile Overlay -->
+<div id="profile-overlay">
+  <div class="max-w-4xl mx-auto p-6">
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+      <!-- Close Button -->
+      <div class="bg-gradient-to-r from-red-600 to-red-400 h-48 relative">
+        <button id="close-profile-button" class="absolute top-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded-full" onclick="hideProfile()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-6 pt-16 relative">
+        <!-- Profile Image -->
+        <div class="absolute -top-16 left-6">
+          <img src="/api/placeholder/120/120" alt="Profile" class="w-32 h-32 rounded-full border-4 border-white">
+        </div>
+
+        <!-- Profile Information -->
+        <div class="mt-16">
+          <h2 class="text-2xl font-bold">Alex Morgan</h2>
+          <p class="text-gray-600">Music Production & Engineering • 6th Semester</p>
+          
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Music Production</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Mixing</span>
+            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Sound Design</span>
+          </div>
+          
+          <div class="mt-6">
+            <h3 class="font-semibold text-lg mb-2">Bio</h3>
+            <p class="text-gray-700">Music producer and mixing engineer. Always looking to collaborate on interesting projects.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div>
+              <h3 class="font-semibold text-lg mb-2">Instruments & Software</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Guitar</span>
+                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Piano</span>
+                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">Logic Pro</span>
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="font-semibold text-lg mb-2">Preferred Genres</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Rock</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Pop</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Electronic</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6">
+            <h3 class="font-semibold text-lg mb-2">My Uploads</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-gray-200 rounded-lg">
+                  <img src="/api/placeholder/64/64" alt="Track" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                  <p class="font-medium">Midnight Session</p>
+                  <p class="text-sm text-gray-500">3:42 • Rock</p>
+                </div>
+              </div>
+              
+              <div class="flex items-center space-x-4">
+                <div class="w-16 h-16 bg-gray-200 rounded-lg">
+                  <img src="/api/placeholder/64/64" alt="Track" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                  <p class="font-medium">Synth Wave</p>
+                  <p class="text-sm text-gray-500">4:15 • Electronic</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Simple JavaScript with direct inline functions -->
+<script>
+  // Direct functions with simple implementation
+  function showProfile() {
+    document.getElementById('profile-overlay').classList.add('visible');
+    console.log("Profile shown");
+  }
+  
+  function hideProfile() {
+    document.getElementById('profile-overlay').classList.remove('visible');
+    console.log("Profile hidden");
+  }
+</script>
+</body>
+</html>
